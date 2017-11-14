@@ -3,5 +3,10 @@
     name: leifmadsen/dummy-commits
     check:
       jobs:
-        - noop
-    
+          - hello-world
+
+- job:
+    name: hello-world
+    parent: base
+    run: playbooks/run.yaml
+    timeout: 900
