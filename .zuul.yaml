@@ -1,7 +1,15 @@
 # vim: set tabstop=2 shiftwidth=2 expandtab ft=yaml
+- job:
+    name: hello-world
+    parent: null
+    pre-run: playbooks/hello-world/pre.yaml
+    run: playbooks/hello-world/run.yaml
+    roles:
+      - zuul: openstack-infra/zuul-jobs
+
 - project:
     name: leifmadsen/dummy-commits
     check:
       jobs:
-        - noop
+        - hello-world
     
